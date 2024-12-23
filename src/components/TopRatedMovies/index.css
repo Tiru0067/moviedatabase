@@ -1,0 +1,17 @@
+.toprated-container {
+  padding: 0px 20px;
+}
+
+.toprated-heading {
+  font-size: 1.45rem;
+}
+
+@media (min-width: 768px) {
+  .toprated-container {
+    padding: 20px 40px;
+  }
+
+  .toprated-heading {
+    font-size: 1.65rem;
+  }
+}

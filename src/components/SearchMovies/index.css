@@ -1,0 +1,17 @@
+.search-container {
+  padding: 0px 20px;
+}
+
+.search-heading {
+  font-size: 1.45rem;
+}
+
+@media (min-width: 768px) {
+  .search-container {
+    padding: 20px 40px;
+  }
+
+  .search-heading {
+    font-size: 1.65rem;
+  }
+}

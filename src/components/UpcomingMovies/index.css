@@ -1,0 +1,17 @@
+.upcoming-container {
+  padding: 0px 20px;
+}
+
+.upcoming-heading {
+  font-size: 1.45rem;
+}
+
+@media (min-width: 768px) {
+  .upcoming-container {
+    padding: 20px 40px;
+  }
+
+  .upcoming-heading {
+    font-size: 1.65rem;
+  }
+}
