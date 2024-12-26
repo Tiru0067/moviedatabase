@@ -1,5 +1,4 @@
 import {createContext, useState} from 'react'
-import axios from 'axios'
 
 // Create Context
 export const MovieContext = createContext()
@@ -8,7 +7,7 @@ export const MovieProvider = ({children}) => {
   const [loading, setLoading] = useState(false)
   const API_KEY = '59d0d766640f9c18ce3708eb57d4d122'
 
-  // Fetch movies function using Axios
+  // Fetch movies function using Fetch API
   const fetchMovies = async (category = 'popular', query = '') => {
     setLoading(true)
     try {
@@ -21,11 +20,15 @@ export const MovieProvider = ({children}) => {
         url = `https://api.themoviedb.org/3/movie/${category}?api_key=${API_KEY}&language=en-US&page=1`
       }
 
-      const response = await axios.get(url)
-      setData(response.data.results)
-      setLoading(false)
+      const response = await fetch(url)
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`)
+      }
+      const result = await response.json()
+      setData(result.results)
     } catch (error) {
       console.error('Error fetching data:', error)
+    } finally {
       setLoading(false)
     }
   }

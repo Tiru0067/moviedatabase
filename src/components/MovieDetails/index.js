@@ -1,6 +1,5 @@
 import {useEffect, useState} from 'react'
 import {useParams, useHistory} from 'react-router-dom'
-import axios from 'axios'
 import './index.css'
 
 const MovieDetails = () => {
@@ -15,15 +14,23 @@ const MovieDetails = () => {
   useEffect(() => {
     const fetchMovieDetails = async () => {
       try {
-        const movieResponse = await axios.get(
+        const movieResponse = await fetch(
           `https://api.themoviedb.org/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`,
         )
-        setMovie(movieResponse.data)
+        if (!movieResponse.ok) {
+          throw new Error(`HTTP error! status: ${movieResponse.status}`)
+        }
+        const movieData = await movieResponse.json()
+        setMovie(movieData)
 
-        const castResponse = await axios.get(
+        const castResponse = await fetch(
           `https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}&language=en-US`,
         )
-        setCast(castResponse.data.cast)
+        if (!castResponse.ok) {
+          throw new Error(`HTTP error! status: ${castResponse.status}`)
+        }
+        const castData = await castResponse.json()
+        setCast(castData.cast)
 
         setLoading(false)
       } catch (error) {
