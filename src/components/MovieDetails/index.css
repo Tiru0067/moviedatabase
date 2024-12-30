@@ -6,6 +6,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }
 
 .movie-details img {
@@ -13,6 +14,10 @@
   height: 450px;
   object-fit: cover;
   margin-bottom: 20px;
+}
+
+.movie-info {
+  text-align: left;
 }
 
 .movie-info p {
@@ -32,7 +37,7 @@
 
 .cast-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   gap: 20px;
 }
 
@@ -42,7 +47,7 @@
 
 .cast-card img {
   width: 100%;
-  height: 250px;
+  height: auto;
   object-fit: cover;
   border-radius: 10px;
 }
@@ -73,5 +78,20 @@
     flex-direction: row;
     gap: 20px;
     align-items: flex-start;
+  }
+
+  .movie-info {
+    position: relative;
+    margin-top: 50px;
+  }
+
+  .movie-details-title {
+    position: absolute;
+    left: 339px;
+    top: 100px;
+  }
+
+  .cast-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   }
 }

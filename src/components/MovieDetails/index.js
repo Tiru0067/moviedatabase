@@ -54,26 +54,31 @@ const MovieDetails = () => {
           <h1 className="movie-details-title">{movie.title}</h1>
           <img
             className="movie-details-poster"
-            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            src={
+              movie.poster_path
+                ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+                : 'https://via.placeholder.com/300x450?text=Image+Not+Available'
+            }
             alt={movie.title}
           />
         </div>
         <div className="movie-info">
           <p>
-            <strong>Ratings:</strong> {movie.vote_average}
+            <strong>Ratings:</strong> <br />
+            {movie.vote_average}
           </p>
           <p>
-            <strong>Duration:</strong> {movie.runtime} min
+            <strong>Duration:</strong> <br /> {movie.runtime} min
           </p>
           <p>
-            <strong>Genres:</strong>{' '}
+            <strong>Genres:</strong> <br />
             {movie.genres.map(genre => genre.name).join(', ')}
           </p>
           <p>
-            <strong>Release Date:</strong> {movie.release_date}
+            <strong>Release Date:</strong> <br /> {movie.release_date}
           </p>
           <p>
-            <strong>Overview:</strong> {movie.overview}
+            <strong>Overview:</strong> <br /> {movie.overview}
           </p>
         </div>
       </section>
@@ -86,7 +91,11 @@ const MovieDetails = () => {
             cast.map(actor => (
               <div key={actor.id} className="cast-card">
                 <img
-                  src={`https://image.tmdb.org/t/p/w200${actor.profile_path}`}
+                  src={
+                    actor.profile_path
+                      ? `https://image.tmdb.org/t/p/w500${actor.profile_path}`
+                      : 'https://via.placeholder.com/300x450?text=Image+Not+Available'
+                  }
                   alt={actor.name}
                 />
                 <p>

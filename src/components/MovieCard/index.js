@@ -9,10 +9,14 @@ const MovieCard = ({movie}) => {
     <li className="movie-card">
       <img
         className="movie-card-poster"
-        src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+        src={
+          movie.poster_path
+            ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
+            : 'https://via.placeholder.com/300x450?text=Image+Not+Available'
+        }
         alt={movie.title}
       />
-      <p className="movie-card-title">{movie.title}</p>
+      <h1 className="movie-card-title">{movie.title}</h1>
       <p className="movie-card-rating">Rating: {roundedNum}</p>
       <Link to={`/movie/${movie.id}`}>
         <button className="movie-card-view-details" type="button">

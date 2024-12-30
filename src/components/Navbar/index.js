@@ -1,6 +1,6 @@
 import {useState} from 'react'
 import {Link, useHistory} from 'react-router-dom'
-import {HiMenu, HiX} from 'react-icons/hi'
+// import {HiMenu, HiX} from 'react-icons/hi'
 import './index.css'
 
 const Navbar = () => {
@@ -15,6 +15,7 @@ const Navbar = () => {
 
   const handleSearch = e => {
     e.preventDefault()
+    toggleMenu()
     if (searchQuery.trim()) {
       history.push(`/search?query=${searchQuery}`)
       // setSearchQuery('')
@@ -33,7 +34,7 @@ const Navbar = () => {
           onClick={toggleMenu}
           aria-label="Toggle menu"
         >
-          {menuOpen ? <HiX /> : <HiMenu />}
+          {menuOpen ? 'Close' : 'Menu'}
         </button>
       </div>
       <div className={`navbar-links ${menuOpen ? 'show' : ''}`}>
