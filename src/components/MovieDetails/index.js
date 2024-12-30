@@ -8,7 +8,7 @@ const MovieDetails = () => {
   const [cast, setCast] = useState([])
   const [loading, setLoading] = useState(true)
   const history = useHistory()
-  const API_KEY = '59d0d766640f9c18ce3708eb57d4d122'
+  const API_KEY = 'Add You API_KEy'
 
   // Fetch movie details and cast details
   useEffect(() => {
