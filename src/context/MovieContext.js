@@ -5,7 +5,7 @@ export const MovieContext = createContext()
 export const MovieProvider = ({children}) => {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
-  const API_KEY = '59d0d766640f9c18ce3708eb57d4d122'
+  const API_KEY = 'Add You API_KEy'
 
   // Fetch movies function using Fetch API
   const fetchMovies = async (category = 'popular', query = '') => {
