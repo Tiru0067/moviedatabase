@@ -1,23 +1,22 @@
 import {createContext, useState} from 'react'
 
-// Create Context
 export const MovieContext = createContext()
+
 export const MovieProvider = ({children}) => {
   const [data, setData] = useState([])
   const [loading, setLoading] = useState(false)
-  const API_KEY = 'Add You API_KEy'
+  const API_KEY = '59d0d766640f9c18ce3708eb57d4d122'
 
-  // Fetch movies function using Fetch API
-  const fetchMovies = async (category = 'popular', query = '') => {
+  // Fetch movies function
+  const fetchMovies = async (category = 'popular', page = 1, query = '') => {
+    console.log('page: ', page)
     setLoading(true)
     try {
       let url = ''
       if (category === 'search') {
-        // For search category, use the query
-        url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}&language=en-US&page=1`
+        url = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=${query}&language=en-US&page=${page}`
       } else {
-        // For other categories like popular, top_rated and upcoming.
-        url = `https://api.themoviedb.org/3/movie/${category}?api_key=${API_KEY}&language=en-US&page=1`
+        url = `https://api.themoviedb.org/3/movie/${category}?api_key=${API_KEY}&language=en-US&page=${page}`
       }
 
       const response = await fetch(url)

@@ -2,7 +2,6 @@ import {Link} from 'react-router-dom'
 import './index.css'
 
 const MovieCard = ({movie}) => {
-  console.log(movie)
   const num = parseFloat(movie.vote_average)
   const roundedNum = (Math.round(num * 10) / 10).toFixed(1)
   return (
