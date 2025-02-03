@@ -11,10 +11,11 @@ const MovieCard = ({movie}) => {
         src={
           movie.poster_path
             ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-            : 'https://via.placeholder.com/300x450?text=Image+Not+Available'
+            : 'https://dummyimage.com/500x750/000/fff&text=Image+Not+Available'
         }
         alt={movie.title}
       />
+
       <h1 className="movie-card-title">{movie.title}</h1>
       <p className="movie-card-rating">Rating: {roundedNum}</p>
       <Link to={`/movie/${movie.id}`}>

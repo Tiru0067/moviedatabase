@@ -9,7 +9,6 @@ export const MovieProvider = ({children}) => {
 
   // Fetch movies function
   const fetchMovies = async (category = 'popular', page = 1, query = '') => {
-    console.log('page: ', page)
     setLoading(true)
     try {
       let url = ''
@@ -25,6 +24,7 @@ export const MovieProvider = ({children}) => {
       }
       const result = await response.json()
       setData(result.results)
+      console.log(result)
     } catch (error) {
       console.error('Error fetching data:', error)
     } finally {

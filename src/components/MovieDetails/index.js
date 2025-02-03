@@ -57,7 +57,7 @@ const MovieDetails = () => {
             src={
               movie.poster_path
                 ? `https://image.tmdb.org/t/p/w500${movie.poster_path}`
-                : 'https://via.placeholder.com/300x450?text=Image+Not+Available'
+                : 'https://dummyimage.com/500x750/000/fff&text=Image+Not+Available'
             }
             alt={movie.title}
           />
@@ -94,7 +94,7 @@ const MovieDetails = () => {
                   src={
                     actor.profile_path
                       ? `https://image.tmdb.org/t/p/w500${actor.profile_path}`
-                      : 'https://via.placeholder.com/300x450?text=Image+Not+Available'
+                      : 'https://dummyimage.com/500x750/000/fff&text=Image+Not+Available'
                   }
                   alt={actor.name}
                 />

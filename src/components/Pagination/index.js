@@ -21,7 +21,7 @@ const Pagination = ({currentPage, setCurrentPage}) => {
       >
         Prev
       </button>
-      <span className="page-number">{currentPage}</span>
+      <p className="page-number">{currentPage}</p>
       <button
         type="button"
         onClick={handleNextPage}

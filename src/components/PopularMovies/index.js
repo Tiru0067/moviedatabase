@@ -9,6 +9,7 @@ const PopularMovies = () => {
   const [currentPage, setCurrentPage] = useState(1)
 
   useEffect(() => {
+    console.log(currentPage)
     fetchMovies('popular', currentPage)
   }, [currentPage]) // eslint-disable-line react-hooks/exhaustive-deps
 
