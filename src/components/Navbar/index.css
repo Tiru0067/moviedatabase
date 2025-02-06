@@ -89,6 +89,11 @@
   background-color: steelblue;
 }
 
+.navbar-link.active {
+  color: #202020;
+  background-color: steelblue;
+}
+
 /* Responsive Styles */
 @media (min-width: 768px) {
   .menu-toggle {

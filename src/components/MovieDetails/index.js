@@ -1,5 +1,6 @@
 import {useEffect, useState} from 'react'
 import {useParams, useHistory} from 'react-router-dom'
+import LoadingView from '../LoadingView'
 import './index.css'
 
 const MovieDetails = () => {
@@ -42,7 +43,8 @@ const MovieDetails = () => {
     fetchMovieDetails()
   }, [movieId])
 
-  if (loading) return <p>Loading...</p>
+  // if (loading) return <p>Loading...</p>
+  if (loading) return <LoadingView />
 
   if (!movie) return <p>Movie not found.</p>
 
